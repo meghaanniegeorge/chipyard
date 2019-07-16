@@ -43,7 +43,7 @@ ifeq ($(SUB_PROJECT),tracegen)
 	MODEL             ?= TestHarness
 	VLOG_MODEL        ?= $(MODEL)
 	MODEL_PACKAGE     ?= $(SBT_PROJECT)
-	CONFIG            ?= NonBlockingTraceGenConfig
+	CONFIG            ?= TraceGenConfig
 	CONFIG_PACKAGE    ?= $(SBT_PROJECT)
 	GENERATOR_PACKAGE ?= $(SBT_PROJECT)
 	TB                ?= TestDriver

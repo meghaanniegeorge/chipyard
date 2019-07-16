@@ -33,6 +33,10 @@ class WithTraceGen(params: Seq[DCacheParams], nReqs: Int = 8192)
   case MaxHartIdBits => if (params.size == 1) 1 else log2Ceil(params.size)
 })
 
+class TraceGenConfig extends Config(
+  new WithTraceGen(List.fill(2) { DCacheParams(nSets = 16, nWays = 2) }) ++
+  new BaseConfig)
+
 class NonBlockingTraceGenConfig extends Config(
   new WithTraceGen(List.fill(2) { DCacheParams(nMSHRs = 2, nSets = 16, nWays = 2) }) ++
   new BaseConfig)
