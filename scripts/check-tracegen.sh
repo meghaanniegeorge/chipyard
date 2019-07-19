@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SCRIPT_DIR=$(dirname $0)
 AXE_DIR=$(realpath ${SCRIPT_DIR}/../../axe)
 ROCKET_DIR=$(realpath ${SCRIPT_DIR}/../generators/rocket-chip)
