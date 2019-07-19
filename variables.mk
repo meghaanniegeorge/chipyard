@@ -47,7 +47,7 @@ ifeq ($(SUB_PROJECT),tracegen)
 	CONFIG_PACKAGE    ?= $(SBT_PROJECT)
 	GENERATOR_PACKAGE ?= $(SBT_PROJECT)
 	TB                ?= TestDriver
-	TOP               ?= GroundTestSubsystem
+	TOP               ?= TraceGenSystem
 endif
 # for BOOM developers
 ifeq ($(SUB_PROJECT),boom)
