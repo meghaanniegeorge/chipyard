@@ -27,13 +27,26 @@ class RoccRocketConfig extends Config(
   new WithRoccExample ++
   new DefaultRocketConfig)
 
+//------------------------------------------------------------------------------------------------------------
+
 class PWMRocketConfig extends Config(
   new WithPWMBoomRocketTop ++
+  new WithPWM ++
   new BaseRocketConfig)
 
-class PWMAXI4RocketConfig extends Config(
+//-------------------------------------------------------------------------------------------------------------
+
+class UARTRocketConfig extends Config(
+  new WithUARTBoomRocketTop ++
+  new WithUART ++
+  new BaseRocketConfig)
+
+
+/*class PWMAXI4RocketConfig extends Config(
   new WithPWMAXI4BoomRocketTop ++
   new BaseRocketConfig)
+*/
+
 
 class SimBlockDeviceRocketConfig extends Config(
   new WithBlockDevice ++
@@ -94,9 +107,12 @@ class PWMBoomConfig extends Config(
   new WithPWMBoomRocketTop ++
   new BaseBoomConfig)
 
-class PWMAXI4BoomConfig extends Config(
+
+/*class PWMAXI4BoomConfig extends Config(
   new WithPWMAXI4BoomRocketTop ++
   new BaseBoomConfig)
+*/
+
 
 class SimBlockDeviceBoomConfig extends Config(
   new WithBlockDevice ++
@@ -186,9 +202,12 @@ class PWMBoomAndRocketConfig extends Config(
   new WithPWMBoomRocketTop ++
   new BaseBoomAndRocketConfig)
 
-class PWMAXI4BoomAndRocketConfig extends Config(
+
+/*class PWMAXI4BoomAndRocketConfig extends Config(
   new WithPWMAXI4BoomRocketTop ++
   new BaseBoomAndRocketConfig)
+*/
+
 
 class SimBlockDeviceBoomAndRocketConfig extends Config(
   new WithBlockDevice ++

@@ -1,4 +1,4 @@
-package example
+/*package example
 
 import chisel3._
 import chisel3.util._
@@ -124,3 +124,4 @@ trait HasPeripheryPWMAXI4ModuleImp extends LazyModuleImp {
 
   pwmout := outer.pwm.module.io.pwmout
 }
+*/
