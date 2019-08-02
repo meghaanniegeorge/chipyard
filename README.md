@@ -1,27 +1,60 @@
-# REBAR Framework [![CircleCI](https://circleci.com/gh/ucb-bar/project-template/tree/master.svg?style=svg)](https://circleci.com/gh/ucb-bar/project-template/tree/master)
+# Enhanced PWM
 
-## Using REBAR
+This version of chipyard contains a PWM directory inside the example directory which enables the following features:
 
-To get started using REBAR, see the documentation on the REBAR documentation site: https://bar-project-template.readthedocs.io/en/latest/
+1. Configurable number of PWM outputs 
 
-## What is REBAR
+2. Configurable number of PWM output pulses
 
-REBAR is an open source starter template for your custom Chisel project.
-It will allow you to leverage the Chisel HDL, Rocket Chip SoC generator, and other [Berkeley][berkeley] projects to produce a [RISC-V][riscv] SoC with everything from MMIO-mapped peripherals to custom accelerators.
-It contains processor cores ([Rocket][rocket-chip], [BOOM][boom]), accelerators ([Hwacha][hwacha]), FPGA simulation tools ([FireSim][firesim]), ASIC tools ([HAMMER][hammer]) and other tooling to help create a full featured SoC.
-REBAR is actively developed in the [Berkeley Architecture Research Group][ucb-bar] in the [Electrical Engineering and Computer Sciences Department][eecs] at the [University of California, Berkeley][berkeley].
+   a. Finite number of output pulses 
+   
+   b. Infinite number of output pulses
+   
+3. Configurable polarity of PWM outputs
 
-## Resources
+   a. Active high
+   
+   b. Active low
 
-* REBAR Website: ...TBD at a later date...
-* REBAR Documentation: https://bar-project-template.readthedocs.io/
+4. Configurable deadband for complementary outputs
 
-[hwacha]:http://hwacha.org
-[hammer]:https://github.com/ucb-bar/hammer
-[firesim]:https://fires.im
-[ucb-bar]: http://bar.eecs.berkeley.edu
-[eecs]: https://eecs.berkeley.edu
-[berkeley]: https://berkeley.edu
-[riscv]: https://riscv.org/
-[rocket-chip]: https://github.com/freechipsproject/rocket-chip
-[boom]: https://github.com/ucb-bar/riscv-boom
+5. Configurable alignment of PWM outputs
+
+   a. Left-Aligned
+   
+   b. Right-Aligned
+   
+   c. Center-Aligned
+
+6. Configurable phase shift
+
+7. Master enable 
+
+8. Individual PWM output kill option
+
+## How to use it?
+
+A test file named PWMModule.c can be found in the test directory, which uses the "mmio.h" header file to read and write to the appropriate memmory locations. The above mentioned features can be accessed by writing required values to the following registers with appropriate offset:
+
+period: Specify the PWM period here.
+
+duty: Specify the PWM duty cycle here.
+
+noOfCycles: Specify the required number of PWM output pulses.
+
+shamt: Specify the required phase shift here. 
+
+align: Specify the correct option for the required feature here.
+
+                Option      Feature
+                0x00    -   Right-Aligned
+                0x01    -   Center-Aligned
+                0x02    -   Left-Aligned
+                
+deadband: Specify the required deadband in clock cycles here.   
+
+comEn: Assert if complement of PWM output is required.
+
+kill: Assert if the individual PWM output needs to be disabled.
+
+enable: Assert to enable all the PWM outputs synchronously.
